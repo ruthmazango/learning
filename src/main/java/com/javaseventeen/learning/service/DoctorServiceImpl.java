@@ -4,6 +4,8 @@ import com.javaseventeen.learning.model.Doctor;
 import com.javaseventeen.learning.repository.DoctorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,11 +24,15 @@ public class DoctorServiceImpl implements DoctorService{
         return doctorRepository.save(doctor);
     }
 
-    @Override
-    public List<Doctor> getAllDoctors() {
-        return (List<Doctor>) doctorRepository.findAll();
-    }
+//    @Override
+//    public List<Doctor> getAllDoctors() {
+//        return (List<Doctor>) doctorRepository.findAll();
+//    }
 
+    @Override
+    public Page<Doctor> findAll(Pageable pageable) {
+        return doctorRepository.findAll(pageable);
+    }
     @Override
     public Optional<Doctor> findById(Long id){
         return doctorRepository.findById(id);

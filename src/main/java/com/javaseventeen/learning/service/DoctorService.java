@@ -1,6 +1,8 @@
 package com.javaseventeen.learning.service;
 
 import com.javaseventeen.learning.model.Doctor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +10,8 @@ import java.util.Optional;
 public interface DoctorService {
     Doctor saveDoctor(Doctor doctor);
 
-    List<Doctor> getAllDoctors();
+//    List<Doctor> getAllDoctors();
+    Page<Doctor> findAll(Pageable pageable);
 
     Optional<Doctor> findById(Long id);
 
