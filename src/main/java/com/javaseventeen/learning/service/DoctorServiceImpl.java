@@ -79,4 +79,9 @@ public class DoctorServiceImpl implements DoctorService{
             throw new RuntimeException("Doctor not found with id: " + id);
         }
     }
+
+    @Override
+    public List<Doctor> searchDoctors(String searchText) {
+        return doctorRepository.findDoctorsBySearchText(searchText);
+    }
 }

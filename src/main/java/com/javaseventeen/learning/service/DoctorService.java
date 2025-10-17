@@ -18,4 +18,6 @@ public interface DoctorService {
 //    Doctor updateDoctor(Doctor doctor, Long id);
 
     void deleteDoctor(Long id);
+
+    List<Doctor> searchDoctors(String searchText);
 }

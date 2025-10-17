@@ -78,4 +78,14 @@ public class DoctorController {
         doctorservice.deleteDoctor(id);
         return "Deleted successfully";
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Doctor>> searchDoctors(@RequestParam String searchText) {
+        List<Doctor> foundDoctors = doctorservice.searchDoctors(searchText);
+        if (!foundDoctors.isEmpty()) {
+            return ResponseEntity.ok(foundDoctors);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
 }
